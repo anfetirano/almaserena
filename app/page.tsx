@@ -39,15 +39,21 @@ const testimonialSpaces = [
   "Una experiencia de fe y transformación",
   "Un testimonio sobre vivir con intención",
 ];
+const bookSlots = ["Libro 01", "Libro 02", "Libro 03"];
 
 export default function Home() {
   return (
     <>
       <header className="site-header">
         <div className="site-container header-inner">
-          <a className="brand-placeholder" href="#inicio" aria-label="AlmaSerena, inicio">
+          <a
+            className="brand-placeholder"
+            href="#inicio"
+            aria-label="AlmaSerena, inicio. Logo definitivo pendiente"
+            data-media-slot="logo"
+          >
             <span>AS</span>
-            <span className="brand-placeholder__text">Logo pendiente</span>
+            <span className="brand-placeholder__text">AlmaSerena</span>
           </a>
 
           <nav aria-label="Navegación principal">
@@ -100,7 +106,11 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="portrait-placeholder" aria-label="Fotografía de la creadora pendiente">
+            <div
+              className="portrait-placeholder"
+              aria-label="Espacio reservado para la fotografía de la creadora"
+              data-media-slot="creator-portrait"
+            >
               <span className="portrait-placeholder__halo" aria-hidden="true" />
               <span className="portrait-placeholder__head" aria-hidden="true" />
               <span className="portrait-placeholder__body" aria-hidden="true" />
@@ -127,7 +137,12 @@ export default function Home() {
               {pillars.map((pillar, index) => (
                 <li key={pillar.title} className="pillar-item">
                   <span className="pillar-number">{String(index + 1).padStart(2, "0")}</span>
-                  <div className="pillar-icon-placeholder" aria-hidden="true">
+                  <div
+                    className="pillar-icon-placeholder"
+                    aria-label={`Ilustración pendiente para ${pillar.title}`}
+                    data-media-slot={`pillar-illustration-${index + 1}`}
+                    role="img"
+                  >
                     {pillar.symbol}
                   </div>
                   <h3>{pillar.title}</h3>
@@ -175,7 +190,7 @@ export default function Home() {
             </div>
 
             <div className="testimonial-grid">
-              {testimonialSpaces.map((testimonial) => (
+              {testimonialSpaces.map((testimonial, index) => (
                 <article key={testimonial} className="testimonial-placeholder">
                   <span className="quote-placeholder" aria-hidden="true">
                     “
@@ -185,7 +200,14 @@ export default function Home() {
                     AlmaSerena.
                   </p>
                   <footer>
-                    <span className="avatar-placeholder" aria-hidden="true" />
+                    <span
+                      className="avatar-placeholder"
+                      aria-label={`Fotografía pendiente para el testimonio ${index + 1}`}
+                      data-media-slot={`testimonial-portrait-${index + 1}`}
+                      role="img"
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                     <div>
                       <h3>{testimonial}</h3>
                       <span>Próximamente</span>
@@ -199,14 +221,26 @@ export default function Home() {
 
         <section id="productos" className="wire-section wire-section--alternate" aria-labelledby="products-title">
           <div className="site-container feature-grid">
-            <div className="media-placeholder media-placeholder--landscape">
-              <div className="product-placeholder" aria-hidden="true">
-                <span />
-                <span />
-                <span />
+            <div
+              className="media-placeholder media-placeholder--landscape"
+              aria-label="Espacio reservado para las portadas y mockups de libros"
+              data-media-slot="book-collection"
+            >
+              <div className="product-placeholder">
+                {bookSlots.map((book, index) => (
+                  <span
+                    key={book}
+                    aria-label={`Portada pendiente: ${book}`}
+                    data-media-slot={`book-cover-${index + 1}`}
+                    role="img"
+                  >
+                    <em>AlmaSerena</em>
+                    <strong>{book}</strong>
+                  </span>
+                ))}
               </div>
               <span>Recursos AlmaSerena</span>
-              <strong>Imágenes próximamente</strong>
+              <strong>Portadas y mockups próximamente</strong>
             </div>
             <div className="feature-copy">
               <p className="wire-label">Recursos</p>
@@ -249,12 +283,27 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="device-stage" aria-label="Vista previa de la aplicación en desarrollo">
-              <div className="device-placeholder device-placeholder--tablet">
-                <span>Tu espacio de calma</span>
+            <div
+              className="device-stage"
+              aria-label="Espacio reservado para los mockups de la aplicación"
+              data-media-slot="app-mockups"
+            >
+              <div
+                className="device-placeholder device-placeholder--tablet"
+                data-media-slot="app-tablet-mockup"
+              >
+                <span className="device-placeholder__brand">AlmaSerena</span>
+                <span className="device-placeholder__title">Tu espacio de calma</span>
+                <span className="device-placeholder__line" aria-hidden="true" />
+                <span className="device-placeholder__line device-placeholder__line--short" aria-hidden="true" />
               </div>
-              <div className="device-placeholder device-placeholder--phone">
-                <span>AlmaSerena</span>
+              <div
+                className="device-placeholder device-placeholder--phone"
+                data-media-slot="app-phone-mockup"
+              >
+                <span className="device-placeholder__brand">AlmaSerena</span>
+                <span className="device-placeholder__title">Respira. Vuelve a ti.</span>
+                <span className="device-placeholder__action">Comenzar</span>
               </div>
             </div>
           </div>

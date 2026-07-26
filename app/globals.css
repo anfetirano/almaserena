@@ -373,6 +373,7 @@ a {
 }
 
 .pillar-icon-placeholder {
+  position: relative;
   display: grid;
   width: 72px;
   height: 72px;
@@ -384,6 +385,16 @@ a {
   font-family: var(--font-newsreader), serif;
   font-size: 31px;
   font-weight: 350;
+}
+
+.pillar-icon-placeholder::after {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  content: "Ilustración pendiente";
+  white-space: nowrap;
 }
 
 .pillar-item h3,
@@ -477,11 +488,18 @@ a {
 }
 
 .avatar-placeholder {
+  display: grid;
   flex: 0 0 auto;
   width: 44px;
   height: 44px;
+  place-items: center;
+  border: 1px solid var(--accent-soft);
   border-radius: 50%;
-  background: linear-gradient(150deg, var(--accent-soft), var(--accent-deep));
+  background: var(--surface-soft);
+  color: var(--accent);
+  font-family: var(--font-newsreader), serif;
+  font-size: 11px;
+  font-style: italic;
 }
 
 .testimonial-placeholder h3 {
@@ -534,14 +552,20 @@ a {
 }
 
 .product-placeholder span {
-  display: block;
+  display: flex;
   width: 118px;
   height: 210px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   border: 1px solid rgb(116 61 74 / 25%);
   background:
     linear-gradient(90deg, transparent 14px, rgb(255 250 246 / 18%) 15px, transparent 16px),
     var(--accent);
+  padding: 24px 12px 20px 24px;
   box-shadow: 0 7px 16px rgb(74 43 48 / 10%);
+  color: #fffaf6;
+  text-align: center;
 }
 
 .product-placeholder span:nth-child(1) {
@@ -558,6 +582,21 @@ a {
 .product-placeholder span:nth-child(3) {
   height: 205px;
   background-color: #a86f79;
+}
+
+.product-placeholder em {
+  font-family: var(--font-newsreader), serif;
+  font-size: 10px;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.product-placeholder strong {
+  margin: 0;
+  color: inherit;
+  font-family: var(--font-newsreader), serif;
+  font-size: 18px;
+  font-weight: 450;
 }
 
 .feature-copy {
@@ -633,19 +672,17 @@ a {
 
 .device-placeholder {
   position: absolute;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: 7px solid #533d42;
   border-radius: 17px;
-  background:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    var(--surface);
-  background-size: 100% 58px;
+  background: var(--surface);
   box-shadow: 0 12px 28px rgb(74 43 48 / 13%);
   color: var(--accent);
   font-family: var(--font-newsreader), serif;
-  font-size: 17px;
-  font-style: italic;
+  text-align: center;
 }
 
 .device-placeholder--tablet {
@@ -661,6 +698,51 @@ a {
   width: 152px;
   height: 330px;
   border-width: 6px;
+}
+
+.device-placeholder__brand {
+  margin-bottom: 38px;
+  color: var(--accent);
+  font-size: 15px;
+  font-style: italic;
+}
+
+.device-placeholder__title {
+  max-width: 70%;
+  color: var(--foreground);
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+.device-placeholder__line {
+  width: 55%;
+  height: 1px;
+  margin-top: 30px;
+  background: var(--line-strong);
+}
+
+.device-placeholder__line--short {
+  width: 35%;
+  margin-top: 12px;
+}
+
+.device-placeholder__action {
+  min-width: 82px;
+  margin-top: 36px;
+  border: 1px solid var(--accent-soft);
+  padding: 8px 14px;
+  color: var(--accent-deep);
+  font-family: var(--font-geist), sans-serif;
+  font-size: 9px;
+}
+
+.device-placeholder--phone .device-placeholder__brand {
+  margin-bottom: 48px;
+  font-size: 11px;
+}
+
+.device-placeholder--phone .device-placeholder__title {
+  font-size: 17px;
 }
 
 .final-cta {

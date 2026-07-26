@@ -131,6 +131,14 @@ export default function Home() {
                 width={420}
                 height={630}
               />
+              <div className="falling-petals" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+              </div>
               <div className="portrait-composition">
                 <Image
                   className="portrait-placeholder__halo"

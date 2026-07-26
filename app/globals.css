@@ -215,12 +215,18 @@ a {
 .portrait-placeholder__halo {
   position: absolute;
   z-index: 1;
-  top: 78px;
-  left: 15%;
-  width: min(72%, 600px);
+  top: 62px;
+  left: 25%;
+  width: min(70%, 580px);
   height: auto;
-  filter: saturate(0.18) brightness(1.35);
-  opacity: 0.72;
+  filter:
+    saturate(0.08)
+    brightness(1.55)
+    drop-shadow(0 0 8px rgb(255 247 231 / 90%))
+    drop-shadow(0 0 22px rgb(250 205 190 / 68%))
+    drop-shadow(0 0 46px rgb(255 238 218 / 44%));
+  opacity: 0.86;
+  animation: halo-breathe 5.8s ease-in-out infinite;
 }
 
 .portrait-placeholder__person {
@@ -238,11 +244,37 @@ a {
 .portrait-placeholder__plant {
   position: absolute;
   z-index: 2;
-  right: -9%;
-  bottom: 26px;
-  width: min(42%, 330px);
+  right: -12%;
+  bottom: 104px;
+  width: min(45%, 350px);
   height: auto;
-  opacity: 0.92;
+  opacity: 0.96;
+  transform-origin: 48% 100%;
+  animation: botanical-sway 7.2s ease-in-out infinite;
+}
+
+@keyframes halo-breathe {
+  0%,
+  100% {
+    opacity: 0.78;
+    transform: scale(0.985);
+  }
+
+  50% {
+    opacity: 0.96;
+    transform: scale(1.018);
+  }
+}
+
+@keyframes botanical-sway {
+  0%,
+  100% {
+    transform: rotate(-1.2deg) translateX(0);
+  }
+
+  50% {
+    transform: rotate(1.8deg) translateX(4px);
+  }
 }
 
 .hero-values {
@@ -836,8 +868,8 @@ a {
   }
 
   .portrait-placeholder__halo {
-    top: 8px;
-    left: 22%;
+    top: 6px;
+    left: 28%;
     width: min(62%, 500px);
   }
 
@@ -848,9 +880,9 @@ a {
   }
 
   .portrait-placeholder__plant {
-    right: 2%;
-    bottom: 16px;
-    width: min(33%, 260px);
+    right: -2%;
+    bottom: 82px;
+    width: min(38%, 290px);
   }
 
   .hero-values {
@@ -961,8 +993,8 @@ a {
 
   .portrait-placeholder__halo {
     top: 20px;
-    left: 7%;
-    width: 88%;
+    left: 13%;
+    width: 84%;
   }
 
   .portrait-placeholder__person {
@@ -972,9 +1004,9 @@ a {
   }
 
   .portrait-placeholder__plant {
-    right: -7%;
-    bottom: 12px;
-    width: 42%;
+    right: -12%;
+    bottom: 62px;
+    width: 48%;
   }
 
   .hero-values {
@@ -1108,5 +1140,10 @@ a {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .portrait-placeholder__halo,
+  .portrait-placeholder__plant {
+    animation: none;
   }
 }

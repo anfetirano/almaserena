@@ -212,11 +212,28 @@ a {
   min-height: 760px;
 }
 
+.portrait-placeholder::before {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: -6px;
+  width: 16px;
+  background: linear-gradient(
+    90deg,
+    rgb(249 229 222 / 62%),
+    rgb(249 229 222 / 34%) 45%,
+    transparent
+  );
+  backdrop-filter: blur(3px);
+  content: "";
+}
+
 .portrait-placeholder__halo {
   position: absolute;
   z-index: 1;
-  top: 62px;
-  left: 25%;
+  top: 52px;
+  left: 31%;
   width: min(70%, 580px);
   height: auto;
   filter:
@@ -237,6 +254,7 @@ a {
   width: min(78%, 630px);
   height: auto;
   max-height: 720px;
+  clip-path: inset(0 0 0 8px);
   object-fit: contain;
   object-position: bottom right;
 }
@@ -245,7 +263,7 @@ a {
   position: absolute;
   z-index: 2;
   right: -12%;
-  bottom: 104px;
+  bottom: 142px;
   width: min(45%, 350px);
   height: auto;
   opacity: 0.96;
@@ -868,8 +886,8 @@ a {
   }
 
   .portrait-placeholder__halo {
-    top: 6px;
-    left: 28%;
+    top: 0;
+    left: 32%;
     width: min(62%, 500px);
   }
 
@@ -881,7 +899,7 @@ a {
 
   .portrait-placeholder__plant {
     right: -2%;
-    bottom: 82px;
+    bottom: 112px;
     width: min(38%, 290px);
   }
 
@@ -992,8 +1010,8 @@ a {
   }
 
   .portrait-placeholder__halo {
-    top: 20px;
-    left: 13%;
+    top: 14px;
+    left: 17%;
     width: 84%;
   }
 
@@ -1005,7 +1023,7 @@ a {
 
   .portrait-placeholder__plant {
     right: -12%;
-    bottom: 62px;
+    bottom: 88px;
     width: 48%;
   }
 

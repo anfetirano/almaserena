@@ -125,28 +125,30 @@ export default function Home() {
               aria-label="Retrato de la creadora de AlmaSerena"
             >
               <Image
-                className="portrait-placeholder__halo"
-                src="/media/light-halo.png"
-                alt=""
-                width={720}
-                height={720}
-                priority
-              />
-              <Image
                 className="portrait-placeholder__plant"
                 src="/media/cherry-blossom.png"
                 alt=""
                 width={420}
                 height={630}
               />
-              <Image
-                className="portrait-placeholder__person"
-                src="/media/creator-portrait.png"
-                alt="Creadora de AlmaSerena"
-                width={720}
-                height={1080}
-                priority
-              />
+              <div className="portrait-composition">
+                <Image
+                  className="portrait-placeholder__halo"
+                  src="/media/light-halo.png"
+                  alt=""
+                  width={720}
+                  height={720}
+                  priority
+                />
+                <Image
+                  className="portrait-placeholder__person"
+                  src="/media/creator-portrait.png"
+                  alt="Creadora de AlmaSerena"
+                  width={720}
+                  height={1080}
+                  priority
+                />
+              </div>
             </div>
           </div>
           <ul className="site-container hero-values" aria-label="Valores de AlmaSerena">

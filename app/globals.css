@@ -242,7 +242,7 @@ a {
 .portrait-placeholder__halo {
   position: absolute;
   z-index: 1;
-  top: 5.5%;
+  top: 2%;
   left: 20%;
   width: 84%;
   height: auto;
@@ -270,7 +270,7 @@ a {
 .portrait-placeholder__plant {
   position: absolute;
   z-index: 2;
-  right: -12%;
+  right: -18%;
   bottom: 142px;
   width: min(45%, 350px);
   height: auto;
@@ -894,7 +894,7 @@ a {
   }
 
   .portrait-placeholder__halo {
-    top: 5.5%;
+    top: 2%;
     left: 20%;
     width: 84%;
   }
@@ -906,7 +906,7 @@ a {
   }
 
   .portrait-placeholder__plant {
-    right: -2%;
+    right: -7%;
     bottom: 112px;
     width: min(38%, 290px);
   }
@@ -1018,7 +1018,7 @@ a {
   }
 
   .portrait-placeholder__halo {
-    top: 5.5%;
+    top: 2%;
     left: 20%;
     width: 84%;
   }
@@ -1030,7 +1030,7 @@ a {
   }
 
   .portrait-placeholder__plant {
-    right: -12%;
+    right: -17%;
     bottom: 88px;
     width: 48%;
   }

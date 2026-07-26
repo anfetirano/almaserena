@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="gold" x1="38" y1="31" x2="205" y2="221" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b86a14"/>
+      <stop offset=".2" stop-color="#ffd56f"/>
+      <stop offset=".48" stop-color="#fff4b5"/>
+      <stop offset=".72" stop-color="#f7b63f"/>
+      <stop offset="1" stop-color="#b85f0b"/>
+    </linearGradient>
+    <radialGradient id="shine">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".28" stop-color="#fff7c7"/>
+      <stop offset=".72" stop-color="#ffc94f"/>
+      <stop offset="1" stop-color="#c86f10"/>
+    </radialGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path
+    d="M174 24C93 19 35 75 40 146c6 74 85 114 148 77 23-14 39-34 48-58-32 35-84 43-122 17-43-29-52-89-20-130 19-24 47-27 80-28Z"
+    fill="url(#gold)"
+    stroke="#a85b10"
+    stroke-width="3"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M66 146c12 42 55 72 101 68-39 17-89-1-108-40-18-36-10-81 18-108-19 24-22 53-11 80Z"
+    fill="#fff4a6"
+    opacity=".42"
+  />
+  <path
+    d="m169 80 7 19 19 7-19 7-7 20-7-20-20-7 20-7 7-19Z"
+    fill="url(#shine)"
+    stroke="#c67613"
+    stroke-width="2"
+    filter="url(#glow)"
+  />
+  <path
+    d="m215 52 4 12 12 4-12 4-4 12-4-12-12-4 12-4 4-12Z"
+    fill="url(#shine)"
+    stroke="#c67613"
+    stroke-width="1.5"
+    filter="url(#glow)"
+  />
+</svg>

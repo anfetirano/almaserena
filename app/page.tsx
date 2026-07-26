@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const pillars = [
   {
     title: "Mentalidad",
@@ -49,11 +51,15 @@ export default function Home() {
           <a
             className="brand-placeholder"
             href="#inicio"
-            aria-label="AlmaSerena, inicio. Logo definitivo pendiente"
-            data-media-slot="logo"
+            aria-label="AlmaSerena, inicio"
           >
-            <span>AS</span>
-            <span className="brand-placeholder__text">AlmaSerena</span>
+            <Image
+              src="/media/almaserena-logo.png"
+              alt="AlmaSerena"
+              width={210}
+              height={158}
+              priority
+            />
           </a>
 
           <nav aria-label="Navegación principal">
@@ -84,6 +90,14 @@ export default function Home() {
 
       <main id="inicio">
         <section className="hero-section" aria-labelledby="hero-title">
+          <Image
+            className="hero-background"
+            src="/media/hero-background.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+          />
           <div className="site-container hero-grid">
             <div className="hero-copy">
               <p className="wire-label">AlmaSerena</p>
@@ -108,18 +122,39 @@ export default function Home() {
 
             <div
               className="portrait-placeholder"
-              aria-label="Espacio reservado para la fotografía de la creadora"
-              data-media-slot="creator-portrait"
+              aria-label="Retrato de la creadora de AlmaSerena"
             >
-              <span className="portrait-placeholder__halo" aria-hidden="true" />
-              <span className="portrait-placeholder__head" aria-hidden="true" />
-              <span className="portrait-placeholder__body" aria-hidden="true" />
-              <div className="portrait-placeholder__caption">
-                <strong>La creadora de AlmaSerena</strong>
-                <span>Fotografía próximamente</span>
-              </div>
+              <Image
+                className="portrait-placeholder__halo"
+                src="/media/light-halo.png"
+                alt=""
+                width={720}
+                height={720}
+                priority
+              />
+              <Image
+                className="portrait-placeholder__plant"
+                src="/media/cherry-blossom.png"
+                alt=""
+                width={420}
+                height={630}
+              />
+              <Image
+                className="portrait-placeholder__person"
+                src="/media/creator-portrait.png"
+                alt="Creadora de AlmaSerena"
+                width={720}
+                height={1080}
+                priority
+              />
             </div>
           </div>
+          <ul className="site-container hero-values" aria-label="Valores de AlmaSerena">
+            <li><span aria-hidden="true">✦</span> Fe</li>
+            <li><span aria-hidden="true">◇</span> Disciplina</li>
+            <li><span aria-hidden="true">↗</span> Acción</li>
+            <li><span aria-hidden="true">♕</span> Propósito</li>
+          </ul>
         </section>
 
         <section id="metodo" className="wire-section" aria-labelledby="method-title">

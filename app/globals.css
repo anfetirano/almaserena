@@ -49,52 +49,41 @@ a {
 }
 
 .site-header {
-  position: relative;
-  z-index: 10;
-  border-bottom: 1px solid rgb(116 61 74 / 12%);
-  background: rgb(255 250 246 / 96%);
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: transparent;
 }
 
 .header-inner {
   display: grid;
-  min-height: 88px;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 40px;
+  min-height: 126px;
+  grid-template-columns: 230px 1fr auto;
+  align-items: start;
+  gap: 32px;
+  padding-top: 12px;
 }
 
 .brand-placeholder {
-  display: flex;
-  align-items: center;
-  gap: 13px;
+  position: relative;
+  display: block;
+  width: 190px;
+  height: 116px;
 }
 
-.brand-placeholder > span:first-child {
-  display: grid;
-  width: 46px;
-  height: 46px;
-  place-items: center;
-  border: 1px solid var(--accent-soft);
-  border-radius: 50%;
-  color: var(--accent-deep);
-  font-family: var(--font-newsreader), serif;
-  font-size: 17px;
-  font-style: italic;
-  font-weight: 500;
-}
-
-.brand-placeholder__text {
-  color: var(--accent-deep);
-  font-family: var(--font-newsreader), serif;
-  font-size: 18px;
-  font-weight: 500;
+.brand-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .desktop-nav {
   display: flex;
   justify-content: center;
   gap: 30px;
-  margin: 0;
+  margin: 12px 0 0;
   padding: 0;
   list-style: none;
   color: #614f51;
@@ -121,6 +110,7 @@ a {
 }
 
 .wire-button--compact {
+  margin-top: 12px;
   min-height: 42px;
   padding-inline: 18px;
   font-size: 12px;
@@ -139,26 +129,29 @@ a {
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
-  background:
-    radial-gradient(circle at 14% 16%, rgb(215 166 174 / 18%), transparent 25%),
-    var(--surface);
+  background: #ead4d1;
 }
 
-.hero-section::before {
+.hero-section::after {
   position: absolute;
-  top: 110px;
-  left: -150px;
-  width: 300px;
-  height: 560px;
-  border: 1px solid rgb(155 89 104 / 14%);
-  border-radius: 50%;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(255 247 241 / 92%) 0%, rgb(255 247 241 / 58%) 43%, transparent 72%);
   content: "";
 }
 
+.hero-background {
+  z-index: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
 .hero-grid {
+  position: relative;
+  z-index: 2;
   display: grid;
-  min-height: 720px;
-  grid-template-columns: minmax(0, 0.92fr) minmax(430px, 1.08fr);
+  min-height: 760px;
+  grid-template-columns: minmax(420px, 0.86fr) minmax(520px, 1.14fr);
   align-items: stretch;
 }
 
@@ -166,10 +159,10 @@ a {
   position: relative;
   z-index: 1;
   display: flex;
-  max-width: 590px;
+  max-width: 570px;
   flex-direction: column;
   justify-content: center;
-  padding: 104px 56px 104px 0;
+  padding: 190px 34px 132px 90px;
 }
 
 .wire-label {
@@ -195,7 +188,7 @@ a {
 
 .hero-copy h1 {
   max-width: 680px;
-  font-size: clamp(50px, 5.5vw, 78px);
+  font-size: clamp(50px, 5.1vw, 72px);
   line-height: 0.98;
 }
 
@@ -216,89 +209,66 @@ a {
 
 .portrait-placeholder {
   position: relative;
-  min-height: 650px;
-  overflow: hidden;
-  border-left: 1px solid var(--line);
-  background:
-    radial-gradient(circle at 52% 44%, rgb(255 250 246 / 90%) 0 25%, transparent 25.2%),
-    linear-gradient(152deg, #efdeda 0%, #e5c9c7 52%, #d5b1b6 100%);
-}
-
-.portrait-placeholder::before,
-.portrait-placeholder::after {
-  position: absolute;
-  border: 1px solid rgb(116 61 74 / 18%);
-  border-radius: 50%;
-  content: "";
-}
-
-.portrait-placeholder::before {
-  top: 10%;
-  left: 15%;
-  width: 70%;
-  aspect-ratio: 1;
-}
-
-.portrait-placeholder::after {
-  top: 4%;
-  left: 9%;
-  width: 82%;
-  aspect-ratio: 1;
+  min-height: 760px;
 }
 
 .portrait-placeholder__halo {
   position: absolute;
-  top: 44%;
-  left: 50%;
-  width: min(64%, 440px);
-  aspect-ratio: 1;
-  border: 1px solid rgb(255 250 246 / 75%);
-  border-radius: 50%;
-  box-shadow: 0 0 0 20px rgb(255 250 246 / 7%);
-  transform: translate(-50%, -50%);
+  z-index: 1;
+  top: 78px;
+  left: 15%;
+  width: min(72%, 600px);
+  height: auto;
+  filter: saturate(0.18) brightness(1.35);
+  opacity: 0.72;
 }
 
-.portrait-placeholder__head {
-  position: absolute;
-  z-index: 2;
-  top: 19%;
-  left: 50%;
-  width: 118px;
-  height: 146px;
-  border-radius: 48% 48% 44% 44%;
-  background: #805c65;
-  transform: translateX(-50%);
-}
-
-.portrait-placeholder__body {
-  position: absolute;
-  z-index: 2;
-  bottom: -10%;
-  left: 50%;
-  width: 430px;
-  height: 440px;
-  border-radius: 48% 48% 12% 12%;
-  background: #6d4e57;
-  transform: translateX(-50%);
-}
-
-.portrait-placeholder__caption {
+.portrait-placeholder__person {
   position: absolute;
   z-index: 3;
-  right: 30px;
-  bottom: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  border-left: 2px solid var(--accent);
-  background: rgb(255 250 246 / 92%);
-  padding: 15px 19px;
-  color: var(--foreground);
-  font-size: 11px;
+  right: 3%;
+  bottom: -4px;
+  width: min(78%, 630px);
+  height: auto;
+  max-height: 720px;
+  object-fit: contain;
+  object-position: bottom right;
 }
 
-.portrait-placeholder__caption span {
-  color: var(--muted);
+.portrait-placeholder__plant {
+  position: absolute;
+  z-index: 2;
+  right: -9%;
+  bottom: 26px;
+  width: min(42%, 330px);
+  height: auto;
+  opacity: 0.92;
+}
+
+.hero-values {
+  position: absolute;
+  z-index: 4;
+  right: 0;
+  bottom: 26px;
+  left: 0;
+  display: flex;
+  gap: 26px;
+  margin: auto;
+  padding-left: 90px;
+  list-style: none;
+  color: #695254;
+  font-size: 12px;
+}
+
+.hero-values li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hero-values li span {
+  color: var(--gold);
+  font-size: 16px;
 }
 
 .wire-section {
@@ -841,22 +811,51 @@ a {
 
   .header-inner {
     grid-template-columns: 1fr auto;
+    min-height: 106px;
+    padding-top: 8px;
+  }
+
+  .brand-placeholder {
+    width: 150px;
+    height: 92px;
   }
 
   .hero-grid {
-    min-height: auto;
+    min-height: 980px;
     grid-template-columns: 1fr;
+    grid-template-rows: auto 570px;
   }
 
   .hero-copy {
     max-width: 760px;
-    padding: 96px 0 76px;
+    padding: 156px 0 28px;
   }
 
   .portrait-placeholder {
-    min-height: 630px;
-    border-top: 1px solid var(--line);
-    border-left: 0;
+    min-height: 570px;
+  }
+
+  .portrait-placeholder__halo {
+    top: 8px;
+    left: 22%;
+    width: min(62%, 500px);
+  }
+
+  .portrait-placeholder__person {
+    right: 10%;
+    width: min(64%, 500px);
+    max-height: 560px;
+  }
+
+  .portrait-placeholder__plant {
+    right: 2%;
+    bottom: 16px;
+    width: min(33%, 260px);
+  }
+
+  .hero-values {
+    bottom: 18px;
+    padding-left: 24px;
   }
 
   .pillar-grid {
@@ -912,27 +911,34 @@ a {
   }
 
   .header-inner {
-    min-height: 74px;
+    min-height: 82px;
     gap: 16px;
+    padding-top: 4px;
   }
 
-  .brand-placeholder__text {
-    display: none;
-  }
-
-  .brand-placeholder > span:first-child {
-    width: 42px;
-    height: 42px;
+  .brand-placeholder {
+    width: 108px;
+    height: 72px;
   }
 
   .wire-button--compact {
+    margin-top: 12px;
     min-height: 40px;
     padding-inline: 13px;
     font-size: 10px;
   }
 
+  .hero-section::after {
+    background: linear-gradient(180deg, rgb(255 247 241 / 94%) 0%, rgb(255 247 241 / 72%) 47%, transparent 82%);
+  }
+
+  .hero-grid {
+    min-height: 850px;
+    grid-template-rows: auto 430px;
+  }
+
   .hero-copy {
-    padding-block: 78px 60px;
+    padding: 122px 0 8px;
   }
 
   .hero-copy h1 {
@@ -950,22 +956,36 @@ a {
   }
 
   .portrait-placeholder {
-    min-height: 500px;
+    min-height: 430px;
   }
 
-  .portrait-placeholder__head {
-    width: 90px;
-    height: 112px;
+  .portrait-placeholder__halo {
+    top: 20px;
+    left: 7%;
+    width: 88%;
   }
 
-  .portrait-placeholder__body {
-    width: 310px;
-    height: 330px;
+  .portrait-placeholder__person {
+    right: -9%;
+    width: 96%;
+    max-height: 430px;
   }
 
-  .portrait-placeholder__caption {
+  .portrait-placeholder__plant {
+    right: -7%;
+    bottom: 12px;
+    width: 42%;
+  }
+
+  .hero-values {
     right: 16px;
-    bottom: 16px;
+    bottom: 12px;
+    left: 16px;
+    width: auto;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    padding-left: 0;
+    font-size: 10px;
   }
 
   .wire-section {

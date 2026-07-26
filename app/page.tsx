@@ -1,15 +1,44 @@
 const pillars = [
-  { title: "Pilar 01", symbol: "○" },
-  { title: "Pilar 02", symbol: "+" },
-  { title: "Pilar 03", symbol: "◇" },
-  { title: "Pilar 04", symbol: "✓" },
+  {
+    title: "Mentalidad",
+    symbol: "○",
+    description: "Observa tus pensamientos con honestidad y aprende a elegir una mirada más serena.",
+  },
+  {
+    title: "Conexión con Dios",
+    symbol: "+",
+    description: "Haz espacio para la fe, la oración y una relación más consciente con tu propósito.",
+  },
+  {
+    title: "Paz emocional",
+    symbol: "◇",
+    description: "Cultiva recursos cotidianos para atravesar lo que sientes con calma y compasión.",
+  },
+  {
+    title: "Mi día",
+    symbol: "✓",
+    description: "Lleva lo aprendido a tus hábitos, tus decisiones y la forma en que vives cada día.",
+  },
 ];
-const benefits = ["Beneficio principal", "Beneficio secundario", "Beneficio adicional"];
-const testimonials = ["Testimonio 01", "Testimonio 02", "Testimonio 03"];
-
-function PlaceholderLine({ className = "" }: { className?: string }) {
-  return <span aria-hidden="true" className={`placeholder-line ${className}`} />;
-}
+const benefits = [
+  {
+    title: "Más claridad",
+    description: "Una pausa para reconocer lo que necesitas y volver a escuchar tu voz interior.",
+  },
+  {
+    title: "Más calma",
+    description: "Prácticas sencillas para acompañar tus emociones sin exigirte tener todo resuelto.",
+  },
+  {
+    title: "Más intención",
+    description: "Una manera más consciente de cuidar tu tiempo, tu fe y las decisiones de cada día.",
+  },
+];
+const testimonialSpaces = [
+  "Una historia sobre volver a la calma",
+  "Una experiencia de fe y transformación",
+  "Un testimonio sobre vivir con intención",
+];
 
 export default function Home() {
   return (
@@ -33,7 +62,7 @@ export default function Home() {
                 <a href="#testimonios">Testimonios</a>
               </li>
               <li>
-                <a href="#productos">Productos</a>
+                <a href="#productos">Recursos</a>
               </li>
               <li>
                 <a href="#app">App</a>
@@ -41,8 +70,8 @@ export default function Home() {
             </ul>
           </nav>
 
-          <a className="wire-button wire-button--compact" href="#contacto">
-            Acción principal
+          <a className="wire-button wire-button--compact" href="#metodo">
+            Conoce el método
           </a>
         </div>
       </header>
@@ -52,14 +81,22 @@ export default function Home() {
           <div className="site-container hero-grid">
             <div className="hero-copy">
               <p className="wire-label">AlmaSerena</p>
-              <h1 id="hero-title">Titular principal pendiente de definición</h1>
+              <h1 id="hero-title">
+                No estás roto.
+                <br />
+                <em>Estás despertando.</em>
+              </h1>
               <p className="wire-description">
-                Espacio reservado para una introducción breve que explique el propósito
-                de AlmaSerena.
+                Un espacio para transformar tu mente, cuidar tu corazón y vivir con más
+                fe, calma y propósito.
               </p>
-              <div className="hero-actions" aria-label="Acciones previstas">
-                <span className="wire-button">Acción principal</span>
-                <span className="wire-link">Acción secundaria</span>
+              <div className="hero-actions" aria-label="Conoce AlmaSerena">
+                <a className="wire-button" href="#metodo">
+                  Descubre el método
+                </a>
+                <a className="wire-link" href="#beneficios">
+                  Conoce AlmaSerena
+                </a>
               </div>
             </div>
 
@@ -68,8 +105,8 @@ export default function Home() {
               <span className="portrait-placeholder__head" aria-hidden="true" />
               <span className="portrait-placeholder__body" aria-hidden="true" />
               <div className="portrait-placeholder__caption">
-                <strong>Retrato principal</strong>
-                <span>Imagen próximamente</span>
+                <strong>La creadora de AlmaSerena</strong>
+                <span>Fotografía próximamente</span>
               </div>
             </div>
           </div>
@@ -79,10 +116,10 @@ export default function Home() {
           <div className="site-container">
             <div className="section-heading">
               <p className="wire-label">Método</p>
-              <h2 id="method-title">Estructura del método pendiente de definición</h2>
+              <h2 id="method-title">Cuatro pilares para volver a lo esencial</h2>
               <p>
-                Este bloque establecerá la jerarquía del método sin anticipar nombres,
-                promesas ni contenido.
+                Un recorrido que integra mente, fe, bienestar emocional y vida
+                cotidiana, a tu ritmo y sin fórmulas perfectas.
               </p>
             </div>
 
@@ -94,8 +131,7 @@ export default function Home() {
                     {pillar.symbol}
                   </div>
                   <h3>{pillar.title}</h3>
-                  <PlaceholderLine />
-                  <PlaceholderLine className="placeholder-line--short" />
+                  <p>{pillar.description}</p>
                 </li>
               ))}
             </ol>
@@ -106,20 +142,20 @@ export default function Home() {
           <div className="site-container benefits-grid">
             <div className="section-heading section-heading--left">
               <p className="wire-label">Beneficios</p>
-              <h2 id="benefits-title">Resultados y beneficios por definir</h2>
+              <h2 id="benefits-title">Pequeños cambios que se sienten por dentro</h2>
               <p>
-                Área reservada para explicar beneficios confirmados con una narrativa
-                clara y breve.
+                AlmaSerena nace para acompañarte a construir una relación más amable
+                contigo, con tu fe y con el presente.
               </p>
             </div>
 
             <ul className="benefit-list">
               {benefits.map((benefit, index) => (
-                <li key={benefit}>
+                <li key={benefit.title}>
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <div>
-                    <h3>{benefit}</h3>
-                    <PlaceholderLine />
+                    <h3>{benefit.title}</h3>
+                    <p>{benefit.description}</p>
                   </div>
                 </li>
               ))}
@@ -131,24 +167,28 @@ export default function Home() {
           <div className="site-container">
             <div className="section-heading">
               <p className="wire-label">Testimonios</p>
-              <h2 id="testimonials-title">Experiencias reales se incorporarán más adelante</h2>
-              <p>Los siguientes espacios no representan testimonios ni personas reales.</p>
+              <h2 id="testimonials-title">Las historias reales tendrán su propio espacio</h2>
+              <p>
+                Publicaremos testimonios únicamente cuando podamos compartir
+                experiencias auténticas y autorizadas.
+              </p>
             </div>
 
             <div className="testimonial-grid">
-              {testimonials.map((testimonial) => (
+              {testimonialSpaces.map((testimonial) => (
                 <article key={testimonial} className="testimonial-placeholder">
                   <span className="quote-placeholder" aria-hidden="true">
                     “
                   </span>
-                  <PlaceholderLine />
-                  <PlaceholderLine />
-                  <PlaceholderLine className="placeholder-line--short" />
+                  <p>
+                    Este lugar queda preparado para una experiencia real de la comunidad
+                    AlmaSerena.
+                  </p>
                   <footer>
                     <span className="avatar-placeholder" aria-hidden="true" />
                     <div>
                       <h3>{testimonial}</h3>
-                      <span>Contenido pendiente</span>
+                      <span>Próximamente</span>
                     </div>
                   </footer>
                 </article>
@@ -165,31 +205,31 @@ export default function Home() {
                 <span />
                 <span />
               </div>
-              <span>Imágenes de productos</span>
-              <strong>Multimedia pendiente</strong>
+              <span>Recursos AlmaSerena</span>
+              <strong>Imágenes próximamente</strong>
             </div>
             <div className="feature-copy">
-              <p className="wire-label">Productos o recursos</p>
-              <h2 id="products-title">Presentación pendiente de definición</h2>
+              <p className="wire-label">Recursos</p>
+              <h2 id="products-title">Herramientas para acompañar tu proceso</h2>
               <p>
-                Este espacio podrá presentar productos, recursos o contenidos cuando su
-                alcance esté confirmado.
+                Estamos creando recursos editoriales y prácticos para llevar la calma,
+                la reflexión y la fe a distintos momentos de tu vida.
               </p>
-              <ul className="placeholder-list" aria-label="Características pendientes">
+              <ul className="placeholder-list" aria-label="Principios de los recursos">
                 <li>
                   <span aria-hidden="true" />
-                  Característica por definir
+                  Contenido pensado para volver a ti
                 </li>
                 <li>
                   <span aria-hidden="true" />
-                  Característica por definir
+                  Reflexiones para vivir con intención
                 </li>
                 <li>
                   <span aria-hidden="true" />
-                  Característica por definir
+                  Herramientas creadas con calma y propósito
                 </li>
               </ul>
-              <span className="wire-button">Acción del bloque</span>
+              <span className="wire-link">Colección en preparación</span>
             </div>
           </div>
         </section>
@@ -198,23 +238,23 @@ export default function Home() {
           <div className="site-container app-grid">
             <div className="feature-copy">
               <p className="wire-label">Experiencia digital</p>
-              <h2 id="app-title">Bloque reservado para la app</h2>
+              <h2 id="app-title">AlmaSerena, contigo en cada etapa</h2>
               <p>
-                La función de la aplicación, sus plataformas y sus características se
-                documentarán antes de diseñar este contenido.
+                La experiencia digital está tomando forma. Será un espacio íntimo y
+                sencillo para acompañar tu camino, estés donde estés.
               </p>
-              <div className="store-placeholders" aria-label="Plataformas pendientes">
-                <span>Plataforma 01</span>
-                <span>Plataforma 02</span>
+              <div className="store-placeholders" aria-label="Disponibilidad futura">
+                <span>Experiencia en desarrollo</span>
+                <span>Lanzamiento próximamente</span>
               </div>
             </div>
 
-            <div className="device-stage" aria-label="Mockups de la aplicación pendientes">
+            <div className="device-stage" aria-label="Vista previa de la aplicación en desarrollo">
               <div className="device-placeholder device-placeholder--tablet">
-                <span>Pantalla de app</span>
+                <span>Tu espacio de calma</span>
               </div>
               <div className="device-placeholder device-placeholder--phone">
-                <span>App</span>
+                <span>AlmaSerena</span>
               </div>
             </div>
           </div>
@@ -224,10 +264,15 @@ export default function Home() {
           <div className="site-container final-cta__inner">
             <div>
               <p className="wire-label">Cierre</p>
-              <h2 id="cta-title">Llamada a la acción pendiente</h2>
-              <p>Mensaje final por definir durante la fase de contenido.</p>
+              <h2 id="cta-title">Haz espacio para lo que sí importa</h2>
+              <p>
+                No tienes que resolverlo todo hoy. Puedes empezar escuchándote,
+                respirando y dando un paso con intención.
+              </p>
             </div>
-            <span className="wire-button wire-button--light">Acción principal</span>
+            <a className="wire-button wire-button--light" href="#metodo">
+              Descubre el método
+            </a>
           </div>
         </section>
       </main>
@@ -236,24 +281,24 @@ export default function Home() {
         <div className="site-container footer-grid">
           <div>
             <strong>AlmaSerena</strong>
-            <p>Descripción breve pendiente.</p>
+            <p>Calma, fe y propósito para volver a lo esencial.</p>
           </div>
           <div>
             <strong>Navegación</strong>
             <a href="#metodo">Método</a>
             <a href="#beneficios">Beneficios</a>
-            <a href="#productos">Productos</a>
+            <a href="#productos">Recursos</a>
           </div>
           <div>
             <strong>Información</strong>
-            <span>Enlace pendiente</span>
-            <span>Enlace pendiente</span>
-            <span>Enlace pendiente</span>
+            <span>Recursos en preparación</span>
+            <span>App en desarrollo</span>
+            <span>Historias próximamente</span>
           </div>
         </div>
         <div className="site-container footer-bottom">
           <span>© {new Date().getFullYear()} AlmaSerena</span>
-          <span>Dirección visual — Fase 2</span>
+          <span>Creado con calma y propósito</span>
         </div>
       </footer>
     </>

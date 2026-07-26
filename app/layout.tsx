@@ -14,8 +14,9 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: "AlmaSerena",
-  description: "Sitio web de AlmaSerena en construcción.",
+  title: "AlmaSerena | Calma, fe y propósito",
+  description:
+    "Un espacio para transformar tu mente, cuidar tu corazón y vivir con más fe, calma y propósito.",
 };
 
 export default function RootLayout({
